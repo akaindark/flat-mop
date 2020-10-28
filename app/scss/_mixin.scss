@@ -36,6 +36,10 @@
   animation: element-1 3s 0.1s infinite alternate
     cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
+@mixin animation3 {
+  animation: element-1 4s 0.1s infinite alternate
+    cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
 
 //responsiv
 

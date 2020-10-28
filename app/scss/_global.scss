@@ -17,11 +17,9 @@ body {
   padding: 0;
   @include fw400;
   line-height: 1.2;
-  color: $text;
+  color: $title;
   background-color: $bg;
-  width: 100%;
-  height: 100%;
-  background-image: url(../images/dest/helloween-bg.jpg);
+  font-weight: 500;
 }
 main {
   width: 100%;
@@ -125,6 +123,7 @@ input {
   padding: rem(15px) 0px rem(15px) rem(30px);
 }
 .image {
+  z-index: 1;
   img {
     max-width: rem(500px);
   }
