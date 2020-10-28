@@ -16,6 +16,7 @@
 }
 @mixin item-list {
   position: relative;
+  color: $white;
   &::before {
     content: "\f105";
     position: absolute;
@@ -26,9 +27,18 @@
     top: rem(14px);
   }
 }
+//Animation
+@mixin animation1 {
+  animation: element-1 5s 0.1s infinite alternate
+    cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+@mixin animation2 {
+  animation: element-1 3s 0.1s infinite alternate
+    cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
 
 //responsiv
 
 @function rem($px) {
   @return $px/16px + 0rem;
-} ;
+}

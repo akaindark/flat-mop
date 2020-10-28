@@ -1,16 +1,20 @@
-@import 'vars';
-@import 'mixin';
-@import 'global';
-@import 'fonts';
+@import "vars";
+@import "mixin";
+@import "global";
+@import "fonts";
 
 /*=====Header=====*/
+.wrapper-page {
+  width: 100%;
+  height: 100%;
+}
 
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   background-color: $bg;
   box-shadow: 0px 4px 80px 0px $phone;
   &__logo {
@@ -64,8 +68,8 @@
     }
     &-1 {
       &::before {
-        content: '\f164';
-        font-family: 'icomoon';
+        content: "\f164";
+        font-family: "icomoon";
         position: absolute;
         left: rem(-25px);
         top: rem(10px);
@@ -73,8 +77,8 @@
     }
     &-2 {
       &::before {
-        content: '\f013';
-        font-family: 'icomoon';
+        content: "\f013";
+        font-family: "icomoon";
         position: absolute;
         left: rem(-25px);
         top: rem(10px);
@@ -82,8 +86,8 @@
     }
     &-3 {
       &::before {
-        content: '\f03a';
-        font-family: 'icomoon';
+        content: "\f03a";
+        font-family: "icomoon";
         position: absolute;
         left: rem(-25px);
         top: rem(10px);
@@ -106,7 +110,24 @@
 /*=====Intro=====*/
 
 .intro {
-  padding: 150px 0px 70px;
+  padding: 430px 0px 70px;
+  background-color: $yellow;
+  position: relative;
+  .ghost {
+    position: absolute;
+    width: 150px;
+    top: 30%;
+    right: 50px;
+    z-index: 1;
+    @include animation1;
+  }
+  .bat {
+    position: absolute;
+    width: 120px;
+    left: 6%;
+    bottom: 20%;
+    @include animation2;
+  }
   &__inner {
     display: grid;
     justify-items: center;
@@ -115,12 +136,25 @@
     grid-column-gap: 10px;
     grid-row-gap: 0px;
     grid-template-areas:
-      'image title'
-      'image text'
-      'price btn';
+      "image title"
+      "image text"
+      "price btn";
   }
   &__image {
     grid-area: image;
+    position: relative;
+    max-width: 400px;
+    max-height: 400px;
+    &-border {
+      position: absolute;
+      content: "";
+      background: url(../images/dest/border-image.png) center / cover no-repeat;
+      width: 110%;
+      height: 110%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
     img {
       width: 100%;
     }
@@ -128,12 +162,12 @@
   &__title {
     grid-area: title;
     align-self: start;
-    color: $text;
+    color: $title;
     font-weight: 400;
     margin-bottom: 0;
     span {
       color: $red;
-      font-weight: 500px;
+      font-weight: 400;
     }
   }
   &__content {
@@ -192,7 +226,7 @@ button {
     color: $white;
     position: relative;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 130px;
       height: 130px;
@@ -258,6 +292,28 @@ button {
 /*=====Benefits=====*/
 
 .benefits {
+  background-color: $bg;
+  .benefits-ghost1 {
+    position: absolute;
+    width: 120px;
+    right: 8%;
+    top: 3%;
+    @include animation1;
+  }
+  .benefits-ghost2 {
+    position: absolute;
+    width: 90px;
+    bottom: 2%;
+    left: 6%;
+    @include animation1;
+  }
+  .benefits-witch {
+    position: absolute;
+    width: 130px;
+    left: 45%;
+    top: 5%;
+    @include animation2;
+  }
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -265,15 +321,16 @@ button {
   }
   &__list {
     max-width: 360px;
+    background-color: $bg;
   }
   &__content {
     max-width: rem(600px);
     width: 100%;
     padding: 0px rem(20px);
+    background-color: $bg;
   }
   &__title {
     font-size: rem(45px);
-    color: $red;
     margin-bottom: rem(30px);
   }
 }
@@ -281,6 +338,15 @@ button {
 /*=====Specification=====*/
 
 .spec {
+  background-color: $white;
+  position: relative;
+  .spec-witch {
+    position: absolute;
+    width: 140px;
+    top: 10%;
+    left: 45%;
+    @include animation2;
+  }
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -308,10 +374,31 @@ button {
 /*=====Set=====*/
 
 .set {
+  position: relative;
+  .set-ghost1 {
+    position: absolute;
+    width: 120px;
+    right: 8%;
+    top: 3%;
+    @include animation1;
+  }
+  .set-ghost2 {
+    position: absolute;
+    width: 140px;
+    bottom: 15%;
+    left: 6%;
+    @include animation1;
+  }
+  .set-witch {
+    position: absolute;
+    width: 130px;
+    left: 45%;
+    top: 5%;
+    @include animation2;
+  }
   &__inner {
     align-items: start;
   }
-
   &__content {
     margin-top: rem(30px);
   }
@@ -326,7 +413,23 @@ button {
 /*=====Video=====*/
 
 .video {
+  background-color: $white;
   text-align: center;
+  position: relative;
+  .video-bat {
+    position: absolute;
+    width: 160px;
+    left: 2%;
+    top: 30%;
+    @include animation1;
+  }
+  .video-witch {
+    position: absolute;
+    width: 150px;
+    bottom: 30%;
+    right: 5%;
+    @include animation2;
+  }
   &__text {
     max-width: rem(700px);
     padding: 0px rem(20px);
@@ -447,8 +550,8 @@ button {
   &__warranty {
     position: relative;
     &::before {
-      content: '\f164';
-      font-family: 'icomoon';
+      content: "\f164";
+      font-family: "icomoon";
       position: absolute;
       left: rem(12px);
       top: rem(-2px);
@@ -458,8 +561,8 @@ button {
   &__delivery {
     position: relative;
     &::before {
-      content: '\f0d1';
-      font-family: 'icomoon';
+      content: "\f0d1";
+      font-family: "icomoon";
       position: absolute;
       left: rem(12px);
       top: rem(-2px);
@@ -469,14 +572,20 @@ button {
   &__payment {
     position: relative;
     &::before {
-      content: '\f09d';
-      font-family: 'icomoon';
+      content: "\f09d";
+      font-family: "icomoon";
       position: absolute;
       left: rem(12px);
       top: rem(-2px);
       color: $red;
     }
   }
+}
+
+/*=====Intro Bottom=====*/
+
+.intro--bottom {
+  padding-top: rem(100px);
 }
 
 /*=====Footer=====*/
@@ -514,8 +623,8 @@ button {
   bottom: 150px;
   transition: all 0.3s;
   &::before {
-    content: '\f062';
-    font-family: 'icomoon';
+    content: "\f062";
+    font-family: "icomoon";
     padding: 15px;
     border-radius: 50%;
     color: $bg;
@@ -527,24 +636,141 @@ button {
   }
 }
 
-// .wrapper {
-//   &__parallax {
-//     width: 100%;
-//     height: 100%;
-//     position: relative;
-//     padding-top: 100px;
-//   }
-//   &__layers {
-//     img {
-//       width: 200px;
-//       height: auto;
-//     }
-//     position: absolute;
-//     left: 50%;
-//     top: 50%;
-//   }
-//   width: 100px;
-//   height: auto;
-// }
+/*=====Parallax=====*/
 
-@import 'media';
+.page {
+  position: absolute;
+  width: 100%;
+  height: 370px;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 360px;
+  z-index: 1;
+}
+.parallax {
+  background-color: $yellow;
+  &__wrapper {
+    overflow: hidden;
+  }
+  flex: 1 0 100%;
+  position: relative;
+  overflow: hidden;
+  &__list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  &__item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  &__rope {
+    position: absolute;
+    width: 120%;
+    left: -10%;
+    top: 1%;
+    transform: scale(1);
+    img {
+      width: 100%;
+    }
+  }
+  &__element {
+    position: absolute;
+    span {
+      display: inline-block;
+      transform-origin: 50% 0;
+      width: 250px;
+      height: 250px;
+      margin-left: -140px;
+      z-index: 5;
+      animation: intro 2s infinite alternate
+        cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    &--1 {
+      top: 0%;
+      left: 20vw;
+      span {
+        background: url("../images/dest/image-helloween/bat.png") 0 0 / cover
+          no-repeat;
+      }
+    }
+    &--2 {
+      top: 70px;
+      left: 35vw;
+      span {
+        width: 300px;
+        height: 300px;
+        background: url("../images/dest/image-helloween/pumpkin.png") 0 0 /
+          cover no-repeat;
+      }
+    }
+    &--3 {
+      top: 0%;
+      left: 50vw;
+      span {
+        background: url("../images/dest/image-helloween/spider.png") 0 0 / cover
+          no-repeat;
+      }
+    }
+    &--4 {
+      top: 0%;
+      left: 60vw;
+      span {
+        background: url("../images/dest/image-helloween/coffin.png") 0 0 / cover
+          no-repeat;
+      }
+    }
+    &--5 {
+      top: 75px;
+      left: 75vw;
+      span {
+        background: url("../images/dest/image-helloween/ghost.png") 0 0 / cover
+          no-repeat;
+      }
+    }
+    &--6 {
+      top: 60px;
+      left: 85vw;
+      span {
+        width: 300px;
+        height: 300px;
+        background: url("../images/dest/image-helloween/spider.png") 0 0 / cover
+          no-repeat;
+      }
+    }
+    &--7 {
+      top: 0%;
+      left: 97vw;
+      span {
+        background: url("../images/dest/image-helloween/pumpkin.png") 0 0 /
+          cover no-repeat;
+      }
+    }
+  }
+}
+
+@keyframes intro {
+  0% {
+    transform: rotateZ(10deg);
+  }
+  100% {
+    transform: rotateZ(-10deg);
+  }
+}
+@keyframes element-1 {
+  0% {
+    transform: rotateZ(0deg) translate3d(0, 10%, 0) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg) translate3d(0, 10%, 0) rotateZ(-360deg);
+  }
+}
+
+@import "media";

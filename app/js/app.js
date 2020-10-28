@@ -1,4 +1,5 @@
 $(function () {
+
   //Slider-1
 
   $('.slider').slick({
@@ -66,7 +67,10 @@ $(function () {
   }
   backToTop();
 
-  //Video
+  //Parallax
+
+  // $('#scene').parallax();
+
 });
 
 function onYouTubeIframeAPIReady() {
@@ -79,7 +83,8 @@ function onYouTubeIframeAPIReady() {
       onReady: onPlayerReady,
     },
   });
+
 }
 
-// var scene = document.getElementById('scene');
-// var parallaxInstance = new Parallax(scene);
+var scene = document.getElementById('scene');
+var parallaxInstance = new Parallax(scene);
